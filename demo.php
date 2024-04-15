@@ -11,10 +11,8 @@ $text = <<<EOT
 
 $translation = new Translation();
 $result = $translation
-    -> setText($text) // 待翻译的文本
-    -> setSourceLanguage('en') // 源语言,默认英语: en
-    -> setTargetLanguage('zh-CN') // 翻译目标语言, 默认中文简体 : zh-CN
-    -> setProxy('http://127.0.0.1:1081') // 配置http代理
-    -> translate();
+//    -> setChannel('google') // 可选 google, microsoft
+//    -> setProxy('http://127.0.0.1:1081') // 可选
+    -> translate($text, 'en', 'zh-CN');
 
 var_dump($result);

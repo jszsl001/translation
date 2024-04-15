@@ -2,69 +2,55 @@
 
 namespace jszsl001\GoogleTranslation;
 
-use GuzzleHttp\Client;
+use jszsl001\GoogleTranslation\channel\Google;
+use jszsl001\GoogleTranslation\channel\Microsoft;
 
 class Translation
 {
 
-    protected $url = "https://translate.googleapis.com/translate_a/single";
+    protected $proxy;
+    protected $channel;
 
-    protected $text = "";
-    protected $targetLanguage = "zh-CN"; // Chinese (Simplified)
-    protected $sourceLanguage = "en";
-    protected $options = [];
-
-    /**
-     * 翻译
-     */
-    public function translate()
+    public function translate($text, $sl = 'en', $tl = 'zh-CN')
     {
-        $param = [];
-        $param['client'] = 'gtx';
-        $param['dt'] = 't';
-        $param['tl'] = $this -> targetLanguage;
-        $param['sl'] = $this -> sourceLanguage;
-        $param['q'] = $this -> text;
-
-        $url = $this -> url . "?" . http_build_query($param);
-
-        $client = new Client();
-        $response = $client -> request('GET', $url, $this -> options);
-        $contents = json_decode($response -> getBody() -> getContents(), true)[0];
-        $result = [];
-        foreach ($contents as $item) {
-            $result[] = [
-                'source' => $item[1],
-                'target' => $item[0]
-            ];
-        }
-
+        $channelObj = $this -> getChannelObj();
+        $channelObj -> setSourceLanguage($sl);
+        $channelObj -> setTargetLanguage($tl);
+        $channelObj -> setProxy($this -> proxy);
+        $channelObj -> setText($text);
+        $result = $channelObj -> translate();
         return $result;
     }
 
 
-    public function setText($text)
+    public function setChannel($channel = 'google')
     {
-        $this -> text = $text;
-        return $this;
-    }
-
-    public function setTargetLanguage($tl = "zh-CN")
-    {
-        $this -> targetLanguage = $tl;
-        return $this;
-    }
-
-    public function setSourceLanguage($sl = "en")
-    {
-        $this -> sourceLanguage = $sl;
+        $this -> channel = $channel;
         return $this;
     }
 
     public function setProxy($proxy = '')
     {
-        $this -> options['proxy'] = $proxy;
+        $this -> proxy = $proxy;
         return $this;
+    }
+
+
+    private function getChannelObj()
+    {
+        switch ($this -> channel) {
+            case 'google':
+                $channelObj = new Google();
+                break;
+            case  'microsoft':
+                $channelObj = new Microsoft();
+                break;
+            // TODO ...
+
+            default:
+                $channelObj = new Microsoft();
+        }
+        return $channelObj;
     }
 
 }
