@@ -1,6 +1,6 @@
 <?php
 
-namespace jszsl001\GoogleTranslation\channel;
+namespace jszsl001\Translation\channel;
 
 use GuzzleHttp\Client;
 

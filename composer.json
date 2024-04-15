@@ -1,9 +1,9 @@
 {
-    "name": "jszsl001/google_translation",
-    "description": "调用 translate.googleapis.com 接口进行翻译",
+    "name": "jszsl001/translation",
+    "description": "调用翻译API进行翻译",
     "autoload": {
         "psr-4": {
-            "jszsl001\\GoogleTranslation\\": "src/"
+            "jszsl001\\Translation\\": "src/"
         }
     },
     "authors": [

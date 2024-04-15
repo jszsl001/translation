@@ -1,7 +1,7 @@
 <?php
 require_once "vendor/autoload.php";
 
-use jszsl001\GoogleTranslation\Translation;
+use jszsl001\Translation\Translation;
 
 $text = <<<EOT
     The world is a vast and beautiful place, full of wonder and excitement. There are so many things to see and do, and so many people to meet. We can travel to different countries, learn new languages, and experience different cultures. We can try new foods, meet new people, and make new friends. We can learn new things, expand our horizons, and challenge ourselves. The possibilities are endless.

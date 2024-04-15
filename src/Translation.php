@@ -1,9 +1,9 @@
 <?php
 
-namespace jszsl001\GoogleTranslation;
+namespace jszsl001\Translation;
 
-use jszsl001\GoogleTranslation\channel\Google;
-use jszsl001\GoogleTranslation\channel\Microsoft;
+use jszsl001\Translation\channel\Google;
+use jszsl001\Translation\channel\Microsoft;
 
 class Translation
 {
