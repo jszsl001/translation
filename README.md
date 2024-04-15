@@ -46,3 +46,9 @@ $result = $translation
 var_dump($result);
 
 ```
+
+
+## Disclaimer
+
+This package is developed for educational purposes only. Do not depend on this package as it may break anytime as it is based on crawling the Google Translate website. Consider buying [Official Google Translate API](https://cloud.google.com/translate/) for other types of usage.
+
