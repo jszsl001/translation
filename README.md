@@ -2,7 +2,7 @@
 translation_api
 
 
-## Quick Start
+## 快速开始
 
 
 ### 安装
@@ -48,7 +48,7 @@ var_dump($result);
 ```
 
 
-## Disclaimer
+## 免责声明
 
-This package is developed for educational purposes only. Do not depend on this package as it may break anytime as it is based on crawling the Google Translate website. Consider buying [Official Google Translate API](https://cloud.google.com/translate/) for other types of usage.
+此包仅为教育目的而开发。不要依赖这个包，请下载使用后删除,因为它可能会在任何时候崩溃，因为它是基于爬取谷歌翻译网站。考虑购买[官方谷歌翻译API](https://cloud.google.com/translate/)用于其他类型的使用。
 
